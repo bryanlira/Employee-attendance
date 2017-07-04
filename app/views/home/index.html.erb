@@ -3,12 +3,10 @@
     <h1>Dashboard</h1>
   </section>
   <section class="content">
-    <div class="nav-tabs-custom">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab_1" data-toggle="tab">Tab 1</a></li>
-        <li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>
-        <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
-      </ul>
-    </div>
+    <% if current_user.has_total_scope? %>
+        <%= render 'dashboard_content', users: @users %>
+    <% else %>
+        <%= render 'attendances_content', user: @user, attendances: @attendances %>
+    <% end %>
   </section>
 </div>

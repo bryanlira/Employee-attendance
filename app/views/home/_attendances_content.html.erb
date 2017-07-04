@@ -1,0 +1,34 @@
+<div class="box">
+  <div class="box-header with-border">
+    <div class="box-tools">
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th><%= t '.full_name' %></th>
+        <th><%= t '.check_in' %></th>
+        <th><%= t '.check_out' %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% attendances.each do |attendance| %>
+          <tr>
+            <td><%= attendance.user_full_name %></td>
+            <td><%= attendance.check_in %></td>
+            <td><%= attendance.check_out %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div><!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <%= custom_paginator attendances, 'no-margin pull-right' %>
+  </div>
+  <div class="box-footer">
+    <div class="text-center">
+      <%= link_to t('helpers.back'), authenticated_root_path, class: 'btn btn-flat btn-danger' %>
+    </div>
+  </div>
+</div>

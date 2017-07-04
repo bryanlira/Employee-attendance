@@ -1,0 +1,13 @@
+en:
+  home:
+    attendances_content:
+      full_name: Full name
+      check_in: Check in
+      check_out: Check out
+    dashboard_content:
+      full_name: Full name
+      email: Email
+      late_for_work: Employees with delays
+      not_working: Employees without working
+    attendances:
+      title: Attendances

@@ -55,5 +55,10 @@ Rails.application.routes.draw do
 
     # Allows the execution of the back button in the login options.
     get '/login', to: 'devise/seasons#new'
+
+    namespace :home do
+      get :not_working
+      get 'attendances/:id', action: :attendances, as: :attendances
+    end
   end
 end

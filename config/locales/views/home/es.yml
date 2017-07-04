@@ -1,0 +1,13 @@
+es:
+  home:
+    attendances_content:
+      full_name: Nombre completo
+      check_in: Registro de entrada
+      check_out: Registro de salida
+    dashboard_content:
+      full_name: Nombre completo
+      email: Correo electrónico
+      late_for_work: Empleados con retardos
+      not_working: Empleados sin asistir
+    attendances:
+      title: Asistencia

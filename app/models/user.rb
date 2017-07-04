@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
 
   scope :not_working, -> { joins(:attendances).where(attendances: {check_in: nil}) }
   scope :late_for_work, -> { joins(:attendances).where('attendances.check_in::time > ?', '9:00:00').uniq }
-  scope :current_attendances, -> (current_user) { Attendance.where(user_id: current_user.id) }
 
   # Get the full name of the user.
   def full_name
@@ -71,6 +70,11 @@ class User < ActiveRecord::Base
   # Identifies whether a user has the role God or not.
   def god?
     role and role_key == 'god'
+  end
+
+  # Identifies whether a user has the total scope or not.
+  def has_total_scope?
+    role_scope == 'total'
   end
 
   private
