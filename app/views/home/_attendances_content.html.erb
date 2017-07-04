@@ -14,10 +14,22 @@
       </thead>
       <tbody>
       <% attendances.each do |attendance| %>
-          <tr>
+          <tr <%= set_style_if_late(attendance) %>>
             <td><%= attendance.user_full_name %></td>
-            <td><%= attendance.check_in %></td>
-            <td><%= attendance.check_out %></td>
+            <% if attendance.check_in? %>
+                <td><%= attendance.check_in %></td>
+            <% else %>
+                <td>
+                  <i class="fa fa-times" style="color:#cb5a5e;"></i>
+                </td>
+            <% end %>
+            <% if attendance.check_out? %>
+                <td><%= attendance.check_out %></td>
+            <% else %>
+                <td>
+                  <i class="fa fa-times" style="color:#cb5a5e;"></i>
+                </td>
+            <% end %>
           </tr>
       <% end %>
       </tbody>

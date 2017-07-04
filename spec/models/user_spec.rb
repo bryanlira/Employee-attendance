@@ -9,7 +9,7 @@ describe User do
     5.times do
       user.attendances.create(check_in: nil, check_out: nil)
     end
-    expect(User.not_working.count).to eq 5
+    expect(User.not_working.where(id: user.id).count).to eq 5
   end
 
   it 'should return true because the God user has a work delay' do

@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || authenticated_root_path || unauthenticated_root_path)
   end
 
-  # Display flash messages for custom validations.
+  # Displays flash messages for custom validations.
   def flash_messages(errors)
     errors.each { |message| flash['alert_'+ message.gsub(/\s+/, '_')] = message }
   end

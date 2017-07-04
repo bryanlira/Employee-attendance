@@ -68,7 +68,7 @@ class RolesController < ApplicationController
     @permissions = Permission.order('controller').group_by { |t| t.controller }
   end
 
-  # Create the relation between the the role and the permissions selected and writes them into the database.
+  # Creates the relation between the the role and the permissions selected and writes them into the database.
   def assign_permissions
     @role.permissions.delete_all
     if params[:permissions_ids].respond_to? 'each'

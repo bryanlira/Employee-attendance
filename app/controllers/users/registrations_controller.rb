@@ -79,11 +79,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # Method to modify our own password.
+  # Allows a user to modify their own password.
   def change_password
   end
 
-  # Method to save our own password.
+  # Allows a user to save their own password.
   def save_password
     respond_to do |format|
       if @user.update_with_password(profile_update_params) && @user.update(profile_update_params)
@@ -99,11 +99,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # Method to edit a users as administrator.
+  # Allows an administrator to edit other user.
   def edit_user
   end
 
-  # Method to update a users as administrator.
+  # Allows an administrator to update the information form other user.
   def update_user
     prev_unconfirmed_email = @user.unconfirmed_email if @user.respond_to?(:unconfirmed_email)
     if @user.update(account_update_params)
@@ -119,11 +119,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # Method to update the user password as administrator.
+  # Allows an administrator to change the password from other user.
   def change_user_password
   end
 
-  # Method to save the user password as administrator.
+  # Allows an administrator to save the new password for the user.
   def save_user_password
     flag = true if @user.eql? current_user
     user = @user

@@ -87,7 +87,7 @@ class PermissionsController < ApplicationController
     end
   end
 
-  # Generate the seeds of the permissions.
+  # Generates the seeds of the permissions.
   def generate_seeds
     respond_to do |format|
       if system('rake db:seed:dump MODELS=Permission FILE=db/seeds/permissions.seeds.rb') &&

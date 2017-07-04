@@ -1,5 +1,5 @@
 module ApplicationHelper
-  # Load the translations for the javascript.
+  # Loads the translations for the javascript.
   def current_translations
     @translator = I18n.backend
     @translator.load_translations
@@ -21,7 +21,7 @@ module ApplicationHelper
         (browser.platform.windows? && browser.safari?)
   end
 
-  # Filter the options to display according to your role.
+  # Filters the options to display according to your role.
   def collection_scope(user, scope)
     policy_name = (scope.to_s + 'Policy').classify.constantize
     policy_name::ScopeActions.new(user, scope).collection_scope
