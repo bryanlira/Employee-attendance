@@ -139,17 +139,23 @@ gem 'roo', '~> 1.13.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the background.
   gem 'spring', '~> 1.7.2'
 
+  # This gem is a port of Perl's Data::Faker library that generates fake data.
   gem 'faker', '~> 1.7.3'
+
+  # rspec-rails is a testing framework for Rails 3.x, 4.x and 5.0.
+  gem 'rspec-rails', '~> 3.6.0'
+
+  # Behaviour Driven Development for Ruby
+  gem 'rspec', '~> 3.6.0'
 end
 
 group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+
   # Add a comment summarizing the current schema.
   gem 'annotate', '~> 2.6.10'
 

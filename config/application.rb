@@ -27,6 +27,9 @@ module EmployeeAttendance
     # To use default rails generators. Active Admin changes this behavior.
     config.app_generators.scaffold_controller = :scaffold_controller
 
+    # Set RSpec as the default test framework.
+    config.generators.test_framework :rspec
+
     # Add custom validators path.
     config.autoload_paths += %W[#{config.root}/app/validators/ #{config.root}/lib]
 
