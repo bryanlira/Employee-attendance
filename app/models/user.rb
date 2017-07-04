@@ -40,8 +40,13 @@ class User < ActiveRecord::Base
   attr_accessor :current_password
 
   belongs_to :role
+  has_many :attendances
 
   delegate :name, :scope, :key, to: :role, prefix: true
+
+  scope :not_working, -> { joins(:attendances).where(attendances: {check_in: nil}) }
+  scope :late_for_work, -> { joins(:attendances).where('attendances.check_in::time > ?', '9:00:00').uniq }
+  scope :current_attendances, -> (current_user) { Attendance.where(user_id: current_user.id) }
 
   # Get the full name of the user.
   def full_name
