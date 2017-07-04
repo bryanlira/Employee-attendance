@@ -1,0 +1,19 @@
+en:
+  permissions:
+    index:
+      title: Permissions
+      resource: the permission
+      name: Name
+      controller: Controller
+      action: Activities
+      one: Permission
+      other: Permissions
+    form:
+      title: Permission
+      role: Role
+      back: Go to permissions
+      resource: permission
+    show:
+      title: Permission
+  breadcrumbs:
+    permissions: Permissions

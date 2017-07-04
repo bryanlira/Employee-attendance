@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    attributes:
+      permission:
+        name: Nombre
+        description: Descripción
+        controller: Controlador
+        action: Acción

@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    attributes:
+      user:
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirmar contraseña
+        full_name: Nombre completo
+        role_id: Rol
+        current_password: Contraseña actual
+        remember_me: Recuérdame
+        first_name: Nombre
+        last_name: Apellido paterno
+        mother_last_name: Apellido materno

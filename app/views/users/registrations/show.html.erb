@@ -1,0 +1,53 @@
+<div class="col-md-8 col-md-offset-2">
+  <section class="content">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title"><%= t '.title' %> <b><%= @user.email %></b></h3>
+        <div class="box-tools">
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <!-- form start -->
+      <%= form_for(@user, url: users_registrations_update_path, html: {class: 'form-horizontal'}, validate: true) do |f| %>
+          <div class="box-body">
+            <div class="form-group">
+              <%= f.label :email, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= f.email_field :email, class: 'form-control', disabled: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :first_name, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= f.text_field :first_name, class: 'form-control', disabled: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= f.text_field :last_name, class: 'form-control', disabled: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :mother_last_name, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= f.text_field :mother_last_name, class: 'form-control', disabled: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :role_name, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= f.text_field :role_name, class: 'form-control', disabled: true %>
+              </div>
+            </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <div class="text-center">
+              <%= link_to t('helpers.back'), users_registrations_index_path, class: 'btn btn-danger' %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </section>
+</div>

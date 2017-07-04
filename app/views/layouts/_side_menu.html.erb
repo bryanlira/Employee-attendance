@@ -1,0 +1,65 @@
+<aside class="main-sidebar" id="#menu-active" data-controller="menu-<%= params[:controller] %>">
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <li class="header"><%= t '.title' %></li>
+      <li class="treeview" id="home">
+        <a href="/">
+          <i class="fa fa-home"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+      </li>
+      <% if has_policy_multiple_records(%w(Permission Role), %w(new index)) ||
+          has_policy(User, %w(new index), 'Users::Registration') %>
+          <li class="header"><%= t '.access' %></li>
+      <% end %>
+      <% if has_policy(Permission, %w(new index)) %>
+          <li class="treeview menu-permissions">
+            <a href="javascript:;">
+              <i class="fa fa-ban"></i> <span><%= t '.permissions' %></span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <%= link_item "<i class='fa fa-plus-circle'></i> #{t '.new_permission'}".html_safe, new_permission_path %>
+              </li>
+              <li>
+                <%= link_item  "<i class='fa fa-list'></i> #{t '.index_masc'}".html_safe, permissions_path %>
+              </li>
+            </ul>
+          </li>
+      <% end %>
+      <% if has_policy(Role, %w(new index)) %>
+          <li class="treeview menu-roles">
+            <a href="javascript:;">
+              <i class="fa fa-lock"></i> <span><%= t '.roles' %></span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <%= link_item "<i class='fa fa-plus-circle'></i> #{t '.new_role'}".html_safe, new_role_path %>
+              </li>
+              <li>
+                <%= link_item "<i class='fa fa-list'></i> #{t '.index_masc'}".html_safe, roles_path %>
+              </li>
+            </ul>
+          </li>
+      <% end %>
+      <% if has_policy(User, %w(new index), 'Users::Registration') %>
+          <li class="treeview menu-users">
+            <a href="javascript:;">
+              <i class="fa fa-users"></i> <span><%= t '.users' %></span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <% if has_policy(User, %w(new), 'Users::Registration') %>
+                    <%= link_to "<i class='fa fa-plus-circle'></i> #{t '.new_user'}".html_safe, users_registrations_new_path %>
+                <% end %>
+              </li>
+              <li>
+                <% if has_policy(User, %w(index), 'Users::Registration') %>
+                    <%= link_to "<i class='fa fa-list'></i> #{t '.index_masc'}".html_safe, users_registrations_index_path %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+      <% end %>
+    </ul>
+  </section>
+</aside>

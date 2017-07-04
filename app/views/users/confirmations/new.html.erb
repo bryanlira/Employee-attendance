@@ -1,0 +1,29 @@
+<div class="login-box">
+  <div class="login-logo">
+    Employee <b>Attendance</b>
+  </div><!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg"><%= t('.confirmation') %></p>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), validate: false,
+                 html: {method: :post}, class: 'form-login') do |f| %>
+
+        <div class="form-group">
+          <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <%= f.label :email, class: 'control-label visible-ie8 visible-ie9' %>
+            <%= f.email_field :email, autofocus: true,
+                              value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                              class: 'form-control placeholder-no-fix', autocomplete: false,
+                              placeholder: t('.email') %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= link_to "<i class='fa fa-arrow-circle-o-left'></i> #{t('helpers.back')}".html_safe, login_path,
+                      class: 'btn' %>
+          <%= f.button "#{t('helpers.send')} <i class='fa fa-arrow-circle-o-right fa-lg'></i>".html_safe,
+                       class: 'btn green-haze pull-right screen-block' %>
+        </div>
+    <% end %>
+  </div><!-- /.login-box-body -->
+</div><!-- /.login-box -->
