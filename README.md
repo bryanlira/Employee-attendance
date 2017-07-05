@@ -35,7 +35,7 @@ Create database structure.
     rake db:migrate
     rake db:seed
 
-Fills the database with fake information.
+Fill the database with fake information.
 
     rake db:fill_database 
     
